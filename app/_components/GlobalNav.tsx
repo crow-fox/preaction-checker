@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FC } from "react";
 import ActionIcon from "@/app/_components/icons/ActionIcon";
 import TemplateIcon from "@/app/_components/icons/TemplateIcon";
 
-const GlobalNav: FC = () => {
+export default function GlobalNav() {
   const pathname = usePathname();
   const isRootActionPage = pathname === "/";
   const isRootTemplatePage = pathname === "/templates";
@@ -44,6 +43,4 @@ const GlobalNav: FC = () => {
       </ul>
     </nav>
   );
-};
-
-export default GlobalNav;
+}
