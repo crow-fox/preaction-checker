@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --c-gray: #F0F0F0;
+    --c-gray-dark: #505050;
+    --c-red: #F0C8C8;
+    --c-red-dark: #502828;
+    --c-green: #C8F0C8;
+    --c-green-dark: #285028;
+    --c-blue: #C8F0F0;
+    --c-blue-dark: #285050;
+    --c-yellow: #F0F0C8;
+    --c-yellow-dark: #505028;
+    --c-pink: #F0C8F0;
+    --c-pink-dark: #502850;
+  }
+}
