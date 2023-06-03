@@ -14,7 +14,7 @@ export default function GlobalNav() {
     isRootTemplatePage || pathname.startsWith("/templates");
 
   return (
-    <nav className="me-auto ms-auto mt-4 box-content max-w-container pe-4 ps-4">
+    <nav>
       <ul className="flex gap-6">
         <li>
           <Link

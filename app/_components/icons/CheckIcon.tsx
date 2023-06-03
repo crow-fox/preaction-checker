@@ -1,4 +1,4 @@
-export default function DeleteIcon() {
+export default function CheckIcon() {
   return (
     <svg
       height="1.5em"
