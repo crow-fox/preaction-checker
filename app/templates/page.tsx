@@ -7,7 +7,7 @@ import TemplatePageTItle from "@/app/templates/TemplatePageTItle";
 export default function TemplatesPage() {
   return (
     <div className="grid gap-8">
-      <div className="grid gap-2">
+      <div className="grid gap-4">
         <div>
           <TemplatePageTItle title="テンプレート一覧" />
         </div>

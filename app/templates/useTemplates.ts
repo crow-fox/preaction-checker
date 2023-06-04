@@ -34,8 +34,20 @@ export const useTemplates = () => {
     router.push(`/templates/${template.id}`);
   };
 
+  const deleteTemplate = async (id: string) => {
+    const { error } = await supabase.from("templates").delete().eq("id", id);
+
+    if (error) {
+      setError(error.message);
+    }
+
+    console.log("削除 template");
+    router.push("/templates");
+  };
+
   return {
     error,
     addTemplate,
+    deleteTemplate,
   };
 };

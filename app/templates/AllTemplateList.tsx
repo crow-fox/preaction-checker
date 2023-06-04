@@ -1,6 +1,7 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Database } from "@/app/_types/supabase";
+import { getConvertedColor } from "@/app/_utils/convert";
 import TemplateList from "@/app/templates/TemplateList";
 
 export default async function AllTemplateList() {
@@ -22,7 +23,12 @@ export default async function AllTemplateList() {
           <p>新規追加してください。</p>
         </div>
       ) : (
-        <TemplateList templates={templates} />
+        <TemplateList
+          templates={templates.map((template) => ({
+            ...template,
+            color: getConvertedColor(template.color),
+          }))}
+        />
       )}
     </>
   );
