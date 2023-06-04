@@ -7,10 +7,11 @@ export default function DotsIcon() {
       viewBox="0 0 4 20"
       fill="none"
       role="img"
+      className="inline-block fill-current"
     >
-      <rect width="4" height="4" rx="2" className="fill-black" />
-      <rect y="8" width="4" height="4" rx="2" className="fill-black" />
-      <rect y="16" width="4" height="4" rx="2" className="fill-black" />
+      <rect width="4" height="4" rx="2" />
+      <rect y="8" width="4" height="4" rx="2" />
+      <rect y="16" width="4" height="4" rx="2" />
     </svg>
   );
 }

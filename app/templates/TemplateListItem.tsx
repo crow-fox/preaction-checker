@@ -16,7 +16,7 @@ export default function TemplateListItem({ id, title, color }: Props) {
             "--color": `var(--c-${color})`,
           } as CSSProperties
         }
-        className=" flex items-center justify-between gap-4 rounded border-2 border-[var(--color)] bg-[var(--color)] p-4 hover:border-blue-700"
+        className=" flex items-center justify-between gap-4 rounded border-2 border-[var(--color)] bg-[var(--color)] p-4 hover:border-blue-500"
       >
         <h2 className="flex items-center gap-2 text-2xl font-bold leading-normal ">
           <TemplateIcon />

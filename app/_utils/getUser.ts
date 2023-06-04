@@ -2,13 +2,7 @@ import "server-only";
 
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-
-type User = {
-  id: string;
-  name?: string;
-  email?: string;
-  avatar_url?: string;
-};
+import { User } from "@/app/_types/user";
 
 export const getUser = async (): Promise<User | undefined> => {
   const supabase = createServerComponentClient({ cookies });

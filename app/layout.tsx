@@ -1,11 +1,11 @@
-import "@/app/globals.css";
-import type { Metadata } from "next";
 import { Noto_Sans_JP as googleNotoSansJP } from "next/font/google";
 import Link from "next/link";
 import AuthUserAvatar from "@/app/_components/AuthUserAvatar";
 import GlobalNav from "@/app/_components/GlobalNav";
+import UserProvider from "@/app/_components/UserProvider";
 import { appConfig } from "@/app/_consts/appConfig";
 import { getHasValidSession } from "@/app/_utils/getHasValidSession";
+import "@/app/globals.css";
 
 const inter = googleNotoSansJP({
   subsets: ["latin"],
@@ -13,7 +13,7 @@ const inter = googleNotoSansJP({
   weight: ["400", "700"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: appConfig.title,
   description: "アクション前に行うべきことをチェックすることができます。",
   robots: {
@@ -38,36 +38,39 @@ export default async function RootLayout({
       <body
         className={`${inter.className} grid h-full grid-rows-[auto_1fr_auto] break-words leading-normal text-black `}
       >
-        <div className=" border-b border-b-black-light py-4 ">
-          <div className=" mx-auto box-content grid max-w-container gap-4 px-4">
-            <header className="flex flex-wrap items-center justify-between gap-2">
-              <p className="text-lg font-bold ">
-                <Link href="/">{appConfig.title}</Link>
-              </p>
-              <Link href="/auth">
-                {/* @ts-expect-error Async Server Component */}
-                <AuthUserAvatar />
-              </Link>
-            </header>
-            {hasValidSession && (
-              <div className="-mb-4">
-                <GlobalNav />
-              </div>
-            )}
+        {/* @ts-expect-error Async Server Component */}
+        <UserProvider>
+          <div className=" border-b border-b-black-light py-4 ">
+            <div className=" mx-auto box-content grid max-w-container gap-4 px-4">
+              <header className="flex flex-wrap items-center justify-between gap-2">
+                <p className="text-lg font-bold ">
+                  <Link href="/">{appConfig.title}</Link>
+                </p>
+                <Link href="/auth">
+                  {/* @ts-expect-error Async Server Component */}
+                  <AuthUserAvatar />
+                </Link>
+              </header>
+              {hasValidSession && (
+                <div className="-mb-4">
+                  <GlobalNav />
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="py-16">
-          <main className="mx-auto box-content max-w-container px-4 ">
-            {children}
-          </main>
-        </div>
-        <div className="border-t border-t-black-light py-4">
-          <footer className="mx-auto box-content max-w-container px-4 ">
-            <p className="flex justify-center">
-              <small>©️ 2023 crow-fox</small>
-            </p>
-          </footer>
-        </div>
+          <div className="py-16">
+            <main className="mx-auto box-content max-w-container px-4 ">
+              {children}
+            </main>
+          </div>
+          <div className="border-t border-t-black-light py-4">
+            <footer className="mx-auto box-content max-w-container px-4 ">
+              <p className="flex justify-center">
+                <small>©️ 2023 crow-fox</small>
+              </p>
+            </footer>
+          </div>
+        </UserProvider>
       </body>
     </html>
   );
