@@ -1,33 +1,25 @@
 "use client";
 
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useUser } from "@/app/_components/UserProviderClient";
-import { Database } from "@/app/_types/supabase";
+import { useDBTemplateOperations } from "@/app/templates/useDBTemplateOperations";
 
 export const useTemplates = () => {
-  const supabase = createClientComponentClient<Database>();
   const [error, setError] = useState<string | undefined>();
   const router = useRouter();
-  const user = useUser();
+
+  const { addTemplateInDB, deleteTemplateInDB } = useDBTemplateOperations();
 
   const addTemplate = async () => {
-    if (!user) {
-      setError("ユーザーが見つかりませんでした。");
+    const { template, error } = await addTemplateInDB();
+
+    if (error) {
+      setError(error.message);
       return;
     }
 
-    const { data: template, error } = await supabase
-      .from("templates")
-      .insert({
-        user_id: user.id,
-      })
-      .select("id")
-      .single();
-
-    if (error || !template) {
-      setError("テンプレートの作成に失敗しました。");
+    if (!template) {
+      setError("template がありません");
       return;
     }
 
@@ -35,13 +27,13 @@ export const useTemplates = () => {
   };
 
   const deleteTemplate = async (id: string) => {
-    const { error } = await supabase.from("templates").delete().eq("id", id);
+    const { error } = await deleteTemplateInDB(id);
 
     if (error) {
       setError(error.message);
+      return;
     }
 
-    console.log("削除 template");
     router.push("/templates");
   };
 

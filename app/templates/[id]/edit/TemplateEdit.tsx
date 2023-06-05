@@ -1,6 +1,8 @@
 "use client";
 
 import { CSSProperties } from "react";
+import ColorRadiosField from "@/app/_components/ColorRadiosField";
+import InputTitle from "@/app/_components/InputTitle";
 import LoadingSpiner from "@/app/_components/LoadingSpiner";
 import ResetButton from "@/app/_components/ResetButton";
 import SaveButton from "@/app/_components/SaveButton";
@@ -9,8 +11,6 @@ import { Template } from "@/app/_types/template";
 import DeleteTemplate from "@/app/templates/[id]/DeleteTemplate";
 import AddTemplateCheckListButton from "@/app/templates/[id]/edit/AddTemplateCheckListButton";
 import EditTemplateCheckListItem from "@/app/templates/[id]/edit/EditTemplateCheckListItem";
-import EditTemplateCOlorRadioField from "@/app/templates/[id]/edit/EditTemplateColorRadioField";
-import EditTemplateTitleField from "@/app/templates/[id]/edit/EditTemplateTitleField";
 import { useTemplate } from "@/app/templates/[id]/edit/useTemplate";
 
 type Props = Template;
@@ -18,7 +18,7 @@ type Props = Template;
 export default function TemplateEdit({ id, title, color, checkList }: Props) {
   const {
     isLoading,
-    // error,
+    error,
     needSave,
     newTitle,
     newColor,
@@ -31,6 +31,10 @@ export default function TemplateEdit({ id, title, color, checkList }: Props) {
     onClickReset,
     handleSubmit,
   } = useTemplate(id, title, color, checkList);
+
+  if (error) {
+    return null;
+  }
 
   if (isLoading) {
     return <LoadingSpiner />;
@@ -57,8 +61,17 @@ export default function TemplateEdit({ id, title, color, checkList }: Props) {
       </div>
 
       <form onSubmit={handleSubmit} className="grid gap-6">
-        <div>
-          <EditTemplateTitleField value={newTitle} onChange={handleTitle} />
+        <div className="grid gap-2">
+          <h2 className="font-bold " id="title">
+            テンプレートのタイトル
+          </h2>
+          <div className="grid">
+            <InputTitle
+              labelledby="title"
+              value={newTitle}
+              onChange={handleTitle}
+            />
+          </div>
         </div>
 
         <div className="grid gap-2">
@@ -94,11 +107,11 @@ export default function TemplateEdit({ id, title, color, checkList }: Props) {
           </div>
         </div>
 
-        <div>
-          <EditTemplateCOlorRadioField
-            value={newColor}
-            onChange={handleColor}
-          />
+        <div className="grid gap-2">
+          <h2 className="font-bold">テーマカラー</h2>
+          <div>
+            <ColorRadiosField value={newColor} onChange={handleColor} />
+          </div>
         </div>
 
         <div className="grid gap-4">

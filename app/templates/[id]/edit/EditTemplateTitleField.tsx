@@ -13,7 +13,9 @@ export default function EditTemplateTitleField(props: Props) {
       <h2 className="font-bold " id={uid}>
         テンプレートのタイトル
       </h2>
-      <InputTitle labelledby={uid} {...props} />
+      <div>
+        <InputTitle labelledby={uid} {...props} />
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ export const useDBTemplateOperations = () => {
   const user = useUser();
 
   const addTemplateInDB = async () => {
-    if (!user) return;
+    if (!user) return { template: null, error: null };
 
     const { data: template, error } = await supabase
       .from("templates")

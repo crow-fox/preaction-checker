@@ -12,7 +12,7 @@ import {
 } from "@/app/_utils/difCheckList";
 import { isEqualObject } from "@/app/_utils/isEqualObject";
 import { useDBTemplateCheckListOperations } from "@/app/templates/[id]/edit/useDBTemplateCheckListOperations";
-import { useDBTemplateOperations } from "@/app/templates/[id]/edit/useDBTemplateOperations";
+import { useDBTemplateOperations } from "@/app/templates/useDBTemplateOperations";
 
 type CheckListReducerAction =
   | {
