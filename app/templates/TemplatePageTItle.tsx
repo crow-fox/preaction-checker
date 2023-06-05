@@ -4,7 +4,7 @@ type Props = {
   title: string;
 };
 
-export default function TemplatePageTItle({ title }: Props) {
+export default function TemplatePageTitle({ title }: Props) {
   return (
     <h1 className="flex items-center gap-1 font-bold">
       <TemplateIcon />

@@ -3,7 +3,7 @@ import LoadingSpiner from "@/app/_components/LoadingSpiner";
 import { authGuard } from "@/app/_utils/authGuard";
 import AddTemplateButton from "@/app/templates/AddTemplateButton";
 import AllTemplateList from "@/app/templates/AllTemplateList";
-import TemplatePageTItle from "@/app/templates/TemplatePageTItle";
+import TemplatePageTitle from "@/app/templates/TemplatePageTitle";
 
 export default async function TemplatesPage() {
   await authGuard();
@@ -12,7 +12,7 @@ export default async function TemplatesPage() {
     <div className="grid gap-8">
       <div className="grid gap-4">
         <div>
-          <TemplatePageTItle title="テンプレート一覧" />
+          <TemplatePageTitle title="テンプレート一覧" />
         </div>
         <div>
           <AddTemplateButton />

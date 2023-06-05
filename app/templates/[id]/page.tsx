@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Database } from "@/app/_types/supabase";
 import { authGuard } from "@/app/_utils/authGuard";
 import { getConvertedCheckList, getConvertedColor } from "@/app/_utils/convert";
-import TemplatePageTItle from "@/app/templates/TemplatePageTItle";
+import TemplatePageTitle from "@/app/templates/TemplatePageTItle";
 import TemplateDetail from "@/app/templates/[id]/TemplateDetail";
 
 export default async function TemplatePage({
@@ -33,7 +33,7 @@ export default async function TemplatePage({
   return (
     <div className="grid gap-4">
       <div>
-        <TemplatePageTItle title="テンプレート詳細" />
+        <TemplatePageTitle title="テンプレート詳細" />
       </div>
       <div>
         <TemplateDetail
