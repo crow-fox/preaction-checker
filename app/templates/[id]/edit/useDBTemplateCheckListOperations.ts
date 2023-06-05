@@ -5,6 +5,7 @@ import {
   TemplateCheckList,
   TemplateCheckListItem,
 } from "@/app/_types/template";
+import { hasAtLeastOneProperty } from "@/app/_utils/hasAtLeastOneProperty";
 
 export const useDBTemplateCheckListOperations = () => {
   const supabase = createClientComponentClient<Database>();
@@ -32,7 +33,7 @@ export const useDBTemplateCheckListOperations = () => {
     id: string,
     payload: Partial<Omit<TemplateCheckListItem, "id">>
   ) => {
-    if (Object.keys(payload).length === 0) {
+    if (hasAtLeastOneProperty(payload)) {
       throw new Error("payload が空です");
     }
 

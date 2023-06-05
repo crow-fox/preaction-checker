@@ -10,6 +10,7 @@ import {
   getDeletedCheckList,
   getUpdatedCheckList,
 } from "@/app/_utils/difCheckList";
+import { hasAtLeastOneProperty } from "@/app/_utils/hasAtLeastOneProperty";
 import { isEqualObject } from "@/app/_utils/isEqualObject";
 import { useDBTemplateCheckListOperations } from "@/app/templates/[id]/edit/useDBTemplateCheckListOperations";
 import { useDBTemplateOperations } from "@/app/templates/useDBTemplateOperations";
@@ -52,7 +53,7 @@ const checkListReducer = (
     case "update": {
       return state.map((checkListItem) => {
         if (checkListItem.id === action.id) {
-          if (Object.keys(action.payload).length === 0) {
+          if (!hasAtLeastOneProperty(action.payload)) {
             throw new Error("payload が空です");
           }
           if (action.payload.title !== undefined) {
@@ -111,7 +112,7 @@ export const useTemplate = (
     id: string;
     payload: Partial<Omit<TemplateCheckListItem, "id">>;
   }) => {
-    if (Object.keys(payload).length === 0) {
+    if (!hasAtLeastOneProperty(payload)) {
       throw new Error("payload が空です");
     }
 

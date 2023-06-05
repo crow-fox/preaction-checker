@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Database } from "@/app/_types/supabase";
 import { authGuard } from "@/app/_utils/authGuard";
 import { getConvertedCheckList, getConvertedColor } from "@/app/_utils/convert";
-import TemplatePageTitle from "@/app/templates/TemplatePageTItle";
+import TemplatePageTitle from "@/app/templates/TemplatePageTitle";
 import TemplateDetail from "@/app/templates/[id]/TemplateDetail";
 
 export default async function TemplatePage({

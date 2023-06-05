@@ -1,7 +1,8 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useUser } from "@/app/_components/UserProviderClient";
-import { Color } from "@/app/_types/color";
 import { Database } from "@/app/_types/supabase";
+import { Template } from "@/app/_types/template";
+import { hasAtLeastOneProperty } from "@/app/_utils/hasAtLeastOneProperty";
 
 export const useDBTemplateOperations = () => {
   const supabase = createClientComponentClient<Database>();
@@ -24,9 +25,9 @@ export const useDBTemplateOperations = () => {
 
   const updateTemplateInDB = async (
     id: string,
-    payload: { title?: string; color?: Color }
+    payload: Partial<Omit<Template, "id" | "checkList">>
   ) => {
-    if (Object.keys(payload).length === 0) {
+    if (!hasAtLeastOneProperty(payload)) {
       throw new Error("payload が空です");
     }
 
