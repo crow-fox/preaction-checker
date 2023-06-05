@@ -1,10 +1,6 @@
-type CheckListItem = {
-  id: string;
-  title: string;
-  order: number;
-  completed?: boolean;
-};
-type CheckList = CheckListItem[];
+import { TemplateCheckList } from "@/app/_types/template";
+
+type CheckList = TemplateCheckList;
 
 export const getDeletedCheckList = <T extends CheckList>(
   originalCheckList: T,
@@ -41,8 +37,7 @@ export const getUpdatedCheckList = <T extends CheckList>(
     const newItem = newCheckList.find((item) => item.id === id);
     if (!originalItem || !newItem) return false;
     if (originalItem.title !== newItem.title) return true;
-    if (originalItem.order !== newItem.order) return true;
-    if (originalItem.completed !== newItem.completed) return true;
+    // if (originalItem.completed !== newItem.completed) return true;
     return false;
   });
 

@@ -80,7 +80,6 @@ export default function TemplateEdit({ id, title, color, checkList }: Props) {
                         id: item.id,
                         payload: {
                           title: newTitle,
-                          order: index + 1,
                         },
                       })
                     }

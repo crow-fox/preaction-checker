@@ -1,7 +1,10 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useUser } from "@/app/_components/UserProviderClient";
 import { Database } from "@/app/_types/supabase";
-import { TemplateCheckList } from "@/app/_types/template";
+import {
+  TemplateCheckList,
+  TemplateCheckListItem,
+} from "@/app/_types/template";
 
 export const useDBTemplateCheckListOperations = () => {
   const supabase = createClientComponentClient<Database>();
@@ -16,7 +19,6 @@ export const useDBTemplateCheckListOperations = () => {
     const { error } = await supabase.from("template_checklist").insert(
       checkList.map((checkList) => ({
         title: checkList.title,
-        order: checkList.order,
         template_id: templateId,
         user_id: user.id,
       }))
@@ -28,7 +30,7 @@ export const useDBTemplateCheckListOperations = () => {
 
   const updateTemplateCheckListItemInDB = async (
     id: string,
-    payload: { title?: string; order?: number }
+    payload: Partial<Omit<TemplateCheckListItem, "id">>
   ) => {
     if (Object.keys(payload).length === 0) {
       throw new Error("payload が空です");
@@ -49,8 +51,8 @@ export const useDBTemplateCheckListOperations = () => {
   ) => {
     try {
       const result = await Promise.all(
-        checkList.map(({ id, title, order }) =>
-          updateTemplateCheckListItemInDB(id, { title, order })
+        checkList.map(({ id, title }) =>
+          updateTemplateCheckListItemInDB(id, { title })
         )
       );
       return result.filter((error) => error !== null);

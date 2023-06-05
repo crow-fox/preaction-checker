@@ -15,7 +15,7 @@ export default async function TemplatePage({
 
   const { data: template, error } = await supabase
     .from("templates")
-    .select("id,title,color,template_checklist(id,title,order)")
+    .select("id,title,color,template_checklist(id,title,created_at)")
     .eq("id", params.id)
     .single();
 

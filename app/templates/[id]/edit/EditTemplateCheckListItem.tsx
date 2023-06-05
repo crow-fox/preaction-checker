@@ -24,10 +24,7 @@ export default function EditTemplateCheckListItem({
           type="text"
           className="block w-full rounded border-2 border-slate-700  p-2 "
           value={title}
-          onChange={(e) => {
-            console.log(e.target.value);
-            onChange(e.target.value);
-          }}
+          onChange={(e) => onChange(e.target.value)}
         />
       </label>
       <button

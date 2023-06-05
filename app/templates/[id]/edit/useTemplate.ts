@@ -43,7 +43,6 @@ const checkListReducer = (
         {
           id: crypto.randomUUID(),
           title: "",
-          order: state.length,
         },
       ];
     }
@@ -56,26 +55,10 @@ const checkListReducer = (
           if (Object.keys(action.payload).length === 0) {
             throw new Error("payload が空です");
           }
-          if (
-            action.payload.title !== undefined &&
-            action.payload.order !== undefined
-          ) {
-            return {
-              ...checkListItem,
-              title: action.payload.title,
-              order: action.payload.order,
-            };
-          }
           if (action.payload.title !== undefined) {
             return {
               ...checkListItem,
               title: action.payload.title,
-            };
-          }
-          if (action.payload.order !== undefined) {
-            return {
-              ...checkListItem,
-              order: action.payload.order,
             };
           }
         }
@@ -126,44 +109,20 @@ export const useTemplate = (
     payload,
   }: {
     id: string;
-    payload: {
-      title?: string;
-      order?: number;
-    };
+    payload: Partial<Omit<TemplateCheckListItem, "id">>;
   }) => {
     if (Object.keys(payload).length === 0) {
       throw new Error("payload が空です");
     }
 
-    const { title, order } = payload;
+    const { title } = payload;
 
-    if (title !== undefined && order !== undefined) {
-      dispatchNewCheckList({
-        type: "update",
-        id,
-        payload: {
-          title,
-          order,
-        },
-      });
-      return;
-    }
     if (title !== undefined) {
       dispatchNewCheckList({
         type: "update",
         id,
         payload: {
           title,
-        },
-      });
-      return;
-    }
-    if (order !== undefined) {
-      dispatchNewCheckList({
-        type: "update",
-        id,
-        payload: {
-          order,
         },
       });
       return;
