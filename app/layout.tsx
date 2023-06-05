@@ -26,6 +26,8 @@ export const metadata = {
   },
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function RootLayout({
   children,
 }: {
@@ -38,7 +40,6 @@ export default async function RootLayout({
       <body
         className={`${inter.className} grid h-full grid-rows-[auto_1fr_auto] break-words leading-normal text-black `}
       >
-        {/* @ts-expect-error Async Server Component */}
         <UserProvider>
           <div className=" border-b border-b-black-light py-4 ">
             <div className=" mx-auto box-content grid max-w-container gap-4 px-4">
@@ -47,7 +48,6 @@ export default async function RootLayout({
                   <Link href="/">{appConfig.title}</Link>
                 </p>
                 <Link href="/auth">
-                  {/* @ts-expect-error Async Server Component */}
                   <AuthUserAvatar />
                 </Link>
               </header>

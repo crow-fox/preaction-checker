@@ -16,6 +16,7 @@ export default function DeleteTemplate({ id, title }: Props) {
     <Dialog.Root>
       <Dialog.Trigger asChild>
         <button className="inline-flex items-center gap-1 rounded-full border-2 border-slate-800 bg-white px-3  py-2 font-bold hover:bg-slate-800 hover:text-white focus:bg-slate-800 focus:text-white ">
+          <DeleteIcon />
           削除
         </button>
       </Dialog.Trigger>

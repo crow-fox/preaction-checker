@@ -1,23 +1,22 @@
-import { ReactNode } from "react";
 import AddIcon from "@/app/_components/icons/AddIcon";
+import CheckIcon from "@/app/_components/icons/CheckIcon";
 
 type Props = {
   onClick: () => void;
-  icon: ReactNode;
 };
 
-export default function AddButton({ onClick, icon }: Props) {
+export default function AddTemplateCheckListButton({ onClick }: Props) {
   return (
     <button
       type="button"
       onClick={onClick}
       className="flex w-full items-center justify-between gap-4 rounded border-2 border-dotted border-slate-500 p-4 hover:border-solid hover:border-blue-500 hover:bg-white focus:bg-white "
     >
-      <span className="flex items-center gap-2 text-2xl  leading-normal">
-        {icon}
+      <span className="flex items-center gap-4 leading-normal">
+        <CheckIcon />
         <span className="font-bold">新規追加</span>
       </span>
-      <span className="ml-auto text-2xl">
+      <span className="ml-auto ">
         <AddIcon />
       </span>
     </button>

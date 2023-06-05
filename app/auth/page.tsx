@@ -31,7 +31,6 @@ export default async function AuthPage() {
     <div className="grid gap-4 ">
       <h1 className="text-2xl font-bold ">アカウント</h1>
       <div>
-        {/* @ts-expect-error Async Server Component */}
         <AccountData />
       </div>
       <p className="grid ">
