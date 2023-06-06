@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import ActionPageTitle from "@/app/(actions)/ActionPageTitle";
-import AddActionButton from "@/app/(actions)/AddActionButton";
+import AddActionLink from "@/app/(actions)/AddActionLink";
 import AllActionList from "@/app/(actions)/AllActionList";
 import LoadingSpiner from "@/app/_components/LoadingSpiner";
 import { authGuard } from "@/app/_utils/authGuard";
@@ -15,7 +15,7 @@ export default async function ActionsPage() {
           <ActionPageTitle title="アクション一覧" />
         </div>
         <div>
-          <AddActionButton />
+          <AddActionLink />
         </div>
       </div>
       <div>

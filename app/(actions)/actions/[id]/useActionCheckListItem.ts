@@ -1,6 +1,6 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useDBActionCheckListOperations } from "@/app/(actions)/actions/[id]/useDBActionCheckListOperations";
+import { useDBActionCheckListOperations } from "@/app/(actions)/useDBActionCheckListOperations";
 
 export const useActionCheckListItem = (id: string, initCompleted: boolean) => {
   const [isLoading, setIsLoading] = useState(false);

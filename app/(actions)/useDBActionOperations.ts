@@ -8,19 +8,73 @@ export const useDBActionOperations = () => {
   const supabase = createClientComponentClient<Database>();
   const user = useUser();
 
-  const addActionInDB = async () => {
+  const addActionInDB = async (payload?: {
+    title?: Action["title"];
+    color?: Action["color"];
+  }) => {
     if (!user) return { action: null, error: null };
+    console.log("addActionInDB start");
 
-    const { data: action, error } = await supabase
-      .from("actions")
-      .insert({
-        user_id: user.id,
-      })
-      .select("id")
-      .single();
+    if (payload === undefined) {
+      const { data: action, error } = await supabase
+        .from("actions")
+        .insert({
+          user_id: user.id,
+        })
+        .select("id")
+        .single();
 
-    console.log("追加 action");
-    return { action, error };
+      console.log("追加 action");
+      return { action, error };
+    }
+
+    if (payload.title !== undefined && payload.color !== undefined) {
+      console.log(
+        "addActionInDB payload.title !== undefined && payload.color !== undefined"
+      );
+      const { data: action, error } = await supabase
+        .from("actions")
+        .insert({
+          user_id: user.id,
+          title: payload.title,
+          color: payload.color,
+        })
+        .select("id")
+        .single();
+
+      console.log("追加action");
+      return { action, error };
+    }
+
+    if (payload.title !== undefined) {
+      const { data: action, error } = await supabase
+        .from("actions")
+        .insert({
+          user_id: user.id,
+          title: payload.title,
+        })
+        .select("id")
+        .single();
+
+      console.log("追加action");
+      return { action, error };
+    }
+
+    if (payload.color !== undefined) {
+      const { data: action, error } = await supabase
+        .from("actions")
+        .insert({
+          user_id: user.id,
+          color: payload.color,
+        })
+        .select("id")
+        .single();
+
+      console.log("追加action");
+      return { action, error };
+    }
+
+    throw new Error("payload が空です");
   };
 
   const updateActionInDB = async (

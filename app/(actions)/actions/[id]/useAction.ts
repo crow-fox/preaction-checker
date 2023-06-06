@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { FormEvent, useReducer, useState } from "react";
-import { useDBActionCheckListOperations } from "@/app/(actions)/actions/[id]/useDBActionCheckListOperations";
+import { useDBActionCheckListOperations } from "@/app/(actions)/useDBActionCheckListOperations";
 import {
   getAddedActionCheckList,
   getDeletedActionCheckList,

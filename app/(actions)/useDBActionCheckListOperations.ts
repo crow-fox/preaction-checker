@@ -20,6 +20,8 @@ export const useDBActionCheckListOperations = () => {
   ) => {
     if (!user) return new Error("ログインしてください");
 
+    console.log("addActionCheckListItemInDB");
+
     const { error } = await supabase.from("action_checklist").insert({
       title: checkListItem.title,
       completed: checkListItem.completed,
@@ -37,18 +39,21 @@ export const useDBActionCheckListOperations = () => {
     checkList: ActionCheckList
   ) => {
     if (!user) return;
+    console.log("addActionCheckListItemsInDB");
+    if (checkList.length === 0) return;
 
-    const result = [];
+    const errors = [];
 
     for (const checkListItem of checkList) {
+      console.log("checkListItem", checkListItem);
       const error = await addActionCheckListItemInDB(actionId, checkListItem);
 
       if (error) {
-        result.push(error);
+        errors.push(error);
       }
     }
 
-    return result;
+    return errors;
   };
 
   const updateActionCheckListItemInDB = async (
