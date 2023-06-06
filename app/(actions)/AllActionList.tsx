@@ -22,8 +22,6 @@ export default async function AllActionList() {
     return null;
   }
 
-  console.log(actions[0].created_at);
-
   return (
     <>
       {actions.length === 0 ? (

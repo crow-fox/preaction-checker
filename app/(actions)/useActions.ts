@@ -34,7 +34,7 @@ export const useActions = () => {
       return;
     }
 
-    router.push("/actions");
+    router.push("/");
   };
 
   return {

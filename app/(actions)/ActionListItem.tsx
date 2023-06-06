@@ -35,7 +35,9 @@ export default function ActionListItem({
           <h2 className="text-xl font-bold leading-normal ">
             {title === "" ? (
               <span className="grid grid-cols-[auto,1fr] gap-2 ">
-                <AlertIcon />
+                <span className="grid text-red-700">
+                  <AlertIcon />
+                </span>
                 タイトルがありません
               </span>
             ) : (

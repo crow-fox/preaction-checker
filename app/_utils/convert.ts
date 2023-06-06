@@ -1,5 +1,3 @@
-import "server-only";
-
 import { format, parseISO } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
 import { Color, isColor } from "@/app/_types/color";
