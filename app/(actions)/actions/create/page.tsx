@@ -2,8 +2,11 @@ import ActionPageTitle from "@/app/(actions)/ActionPageTitle";
 import AddActionButton from "@/app/(actions)/actions/create/AddActionButton";
 import AddActionFromTemplateButtonList from "@/app/(actions)/actions/create/AddActionFromTemplateButtonList";
 import TemplateIcon from "@/app/_components/icons/TemplateIcon";
+import { authGuard } from "@/app/_utils/authGuard";
 
-export default function ActionCreatePage() {
+export default async function ActionCreatePage() {
+  await authGuard();
+
   return (
     <div className="grid gap-8">
       <div className="grid gap-4">
