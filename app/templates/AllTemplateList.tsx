@@ -9,7 +9,8 @@ export default async function AllTemplateList() {
 
   const { data: templates, error } = await supabase
     .from("templates")
-    .select("id,title,color");
+    .select("id,title,color")
+    .order("created_at", { ascending: false });
 
   if (error) {
     return null;
