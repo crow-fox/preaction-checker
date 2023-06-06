@@ -35,6 +35,7 @@ export const useTemplates = () => {
     }
 
     router.push("/templates");
+    router.refresh();
   };
 
   return {

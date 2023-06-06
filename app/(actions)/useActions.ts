@@ -70,7 +70,7 @@ export const useActions = () => {
     }
 
     router.push("/");
-    // router.refresh();
+    router.refresh();
   };
 
   return {
