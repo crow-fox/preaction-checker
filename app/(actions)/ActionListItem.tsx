@@ -76,10 +76,16 @@ export default function ActionListItem({
             <dl className="grid">
               <dt className="font-bold">チェックリスト</dt>
               <dd>
-                <span className="sr-only">{`${checkList.length}個中${completedCheckList.length}個完了`}</span>
-                <span aria-hidden="true" className="text-lg">
-                  {`${completedCheckList.length} / ${checkList.length} 完了`}
-                </span>
+                {checkList.length === 0 ? (
+                  <span>チェックリストがありません</span>
+                ) : (
+                  <>
+                    <span className="sr-only">{`${checkList.length}個中${completedCheckList.length}個完了`}</span>
+                    <span aria-hidden="true" className="text-lg">
+                      {`${completedCheckList.length} / ${checkList.length} 完了`}
+                    </span>
+                  </>
+                )}
               </dd>
             </dl>
           </div>
