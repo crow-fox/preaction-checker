@@ -15,7 +15,13 @@ import { Action } from "@/app/_types/action";
 
 type Props = Action;
 
-export default function ActionEdit({ id, title, color, checkList }: Props) {
+export default function ActionEdit({
+  id,
+  title,
+  color,
+  date,
+  checkList,
+}: Props) {
   const {
     isLoading,
     error,
@@ -72,6 +78,9 @@ export default function ActionEdit({ id, title, color, checkList }: Props) {
               onChange={handleTitle}
             />
           </div>
+          <p>
+            <time dateTime={date.dateTime}>{date.display}</time>
+          </p>
         </div>
 
         <div className="grid gap-2">

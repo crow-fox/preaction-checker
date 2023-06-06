@@ -37,9 +37,9 @@ export default function ActionDetail({
           <div>
             <DetailTitle title={title} />
           </div>
-          <div>
+          <p>
             <time dateTime={date.dateTime}>{date.display}</time>
-          </div>
+          </p>
         </div>
       </div>
 
