@@ -11,22 +11,43 @@ export const useDBTemplateCheckListOperations = () => {
   const supabase = createClientComponentClient<Database>();
   const user = useUser();
 
+  const addTemplateCheckListItemInDB = async (
+    templateId: string,
+    checkListItem: Omit<TemplateCheckListItem, "id">
+  ) => {
+    if (!user) return new Error("ログインしてください");
+
+    const { error } = await supabase.from("template_checklist").insert({
+      title: checkListItem.title,
+      template_id: templateId,
+      user_id: user.id,
+    });
+
+    console.log("追加 templateCheckListItem");
+
+    return error;
+  };
+
   const addTemplateCheckListItemsInDB = async (
     templateId: string,
     checkList: TemplateCheckList
   ) => {
     if (!user) return;
 
-    const { error } = await supabase.from("template_checklist").insert(
-      checkList.map((checkList) => ({
-        title: checkList.title,
-        template_id: templateId,
-        user_id: user.id,
-      }))
-    );
+    const result = [];
 
-    console.log("追加 templateCheckListItems");
-    return error;
+    for (const checkListItem of checkList) {
+      const error = await addTemplateCheckListItemInDB(
+        templateId,
+        checkListItem
+      );
+
+      if (error) {
+        result.push(error);
+      }
+    }
+
+    return result;
   };
 
   const updateTemplateCheckListItemInDB = async (

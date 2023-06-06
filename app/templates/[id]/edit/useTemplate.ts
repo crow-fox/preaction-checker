@@ -202,13 +202,13 @@ export const useTemplate = (
 
       // 追加されたcheckListItemをDBに反映
       if (addedTemplateCheckList.length > 0) {
-        const error = await addTemplateCheckListItemsInDB(
+        const errors = await addTemplateCheckListItemsInDB(
           id,
           addedTemplateCheckList
         );
 
-        if (error) {
-          setError(error.message);
+        if (errors && errors[0] && errors.length > 0) {
+          setError(errors[0].message);
           return;
         }
       }

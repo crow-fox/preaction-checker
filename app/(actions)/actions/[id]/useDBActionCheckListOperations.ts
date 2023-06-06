@@ -51,24 +51,6 @@ export const useDBActionCheckListOperations = () => {
     return result;
   };
 
-  // const addActionCheckListItemsInDB = async (
-  //   actionId: string,
-  //   checkList: ActionCheckList
-  // ) => {
-  //   if (!user) return;
-
-  //   const { error } = await supabase.from("action_checklist").insert(
-  //     checkList.map((checkList) => ({
-  //       title: checkList.title,
-  //       action_id: actionId,
-  //       user_id: user.id,
-  //     }))
-  //   );
-
-  //   console.log("追加 actionCheckListItems");
-  //   return error;
-  // };
-
   const updateActionCheckListItemInDB = async (
     id: string,
     payload: Partial<Omit<ActionCheckListItem, "id">>
