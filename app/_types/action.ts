@@ -17,6 +17,10 @@ export type ActionCheckList = ActionCheckListItem[];
 export type Action = {
   id: DatabaseAction["id"];
   title: DatabaseAction["title"];
+  date: {
+    dateTime: string;
+    display: string;
+  };
   color: Color;
   checkList: ActionCheckList;
 };

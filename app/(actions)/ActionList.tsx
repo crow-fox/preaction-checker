@@ -2,7 +2,7 @@ import ActionListItem from "@/app/(actions)/ActionListItem";
 import { Action } from "@/app/_types/action";
 
 type Props = {
-  actions: Omit<Action, "checkList">[];
+  actions: Action[];
 };
 
 export default function ActionList({ actions }: Props) {
