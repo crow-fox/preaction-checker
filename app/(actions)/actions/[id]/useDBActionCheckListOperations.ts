@@ -14,23 +14,60 @@ export const useDBActionCheckListOperations = () => {
   const supabase = createClientComponentClient<Database>();
   const user = useUser();
 
+  const addActionCheckListItemInDB = async (
+    actionId: string,
+    checkListItem: Omit<ActionCheckListItem, "id">
+  ) => {
+    if (!user) return new Error("ログインしてください");
+
+    const { error } = await supabase.from("action_checklist").insert({
+      title: checkListItem.title,
+      completed: checkListItem.completed,
+      action_id: actionId,
+      user_id: user.id,
+    });
+
+    console.log("追加 actionCheckListItem");
+
+    return error;
+  };
+
   const addActionCheckListItemsInDB = async (
     actionId: string,
     checkList: ActionCheckList
   ) => {
     if (!user) return;
 
-    const { error } = await supabase.from("action_checklist").insert(
-      checkList.map((checkList) => ({
-        title: checkList.title,
-        action_id: actionId,
-        user_id: user.id,
-      }))
-    );
+    const result = [];
 
-    console.log("追加 actionCheckListItems");
-    return error;
+    for (const checkListItem of checkList) {
+      const error = await addActionCheckListItemInDB(actionId, checkListItem);
+
+      if (error) {
+        result.push(error);
+      }
+    }
+
+    return result;
   };
+
+  // const addActionCheckListItemsInDB = async (
+  //   actionId: string,
+  //   checkList: ActionCheckList
+  // ) => {
+  //   if (!user) return;
+
+  //   const { error } = await supabase.from("action_checklist").insert(
+  //     checkList.map((checkList) => ({
+  //       title: checkList.title,
+  //       action_id: actionId,
+  //       user_id: user.id,
+  //     }))
+  //   );
+
+  //   console.log("追加 actionCheckListItems");
+  //   return error;
+  // };
 
   const updateActionCheckListItemInDB = async (
     id: string,

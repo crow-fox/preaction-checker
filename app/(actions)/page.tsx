@@ -3,8 +3,11 @@ import ActionPageTitle from "@/app/(actions)/ActionPageTitle";
 import AddActionButton from "@/app/(actions)/AddActionButton";
 import AllActionList from "@/app/(actions)/AllActionList";
 import LoadingSpiner from "@/app/_components/LoadingSpiner";
+import { authGuard } from "@/app/_utils/authGuard";
 
-export default function ActionsPage() {
+export default async function ActionsPage() {
+  await authGuard();
+
   return (
     <div className="grid gap-8">
       <div className="grid gap-4">

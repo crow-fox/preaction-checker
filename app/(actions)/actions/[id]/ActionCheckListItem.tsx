@@ -28,7 +28,7 @@ export default function ActionCheckListItem({ id, title, completed }: Props) {
       />
       <label
         htmlFor={uid}
-        className="grid w-full grid-cols-[auto,1fr] gap-2 rounded border-2 border-slate-700 bg-white p-4 font-bold peer-checked:bg-slate-800 peer-checked:text-white peer-focus:border-blue-700"
+        className="grid w-full grid-cols-[auto,1fr] gap-4 rounded border-2 border-slate-700 bg-white p-4 font-bold peer-checked:bg-slate-800 peer-checked:text-white peer-focus:border-blue-700"
       >
         <span className="grid h-6 w-6 place-content-center rounded-full border-2 border-current  ">
           {newCompleted && <CheckIcon />}

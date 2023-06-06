@@ -27,7 +27,7 @@ export default function ActionDetail({
       <div className="grid gap-4">
         <ul className="flex flex-wrap justify-end gap-2">
           <li>
-            <ToEditLink href={`/templates/${id}/edit`} />
+            <ToEditLink href={`/actions/${id}/edit`} />
           </li>
           <li>
             <DeleteAction id={id} title={title} />

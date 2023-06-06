@@ -243,13 +243,13 @@ export const useAction = (
 
       // 追加されたcheckListItemをDBに反映
       if (addedActionCheckList.length > 0) {
-        const error = await addActionCheckListItemsInDB(
+        const errors = await addActionCheckListItemsInDB(
           id,
           addedActionCheckList
         );
 
-        if (error) {
-          setError(error.message);
+        if (errors && errors[0] && errors.length > 0) {
+          setError(errors[0].message);
           return;
         }
       }

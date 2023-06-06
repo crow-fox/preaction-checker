@@ -15,11 +15,13 @@ export const useActions = () => {
 
     if (error) {
       setError(error.message);
+      router.refresh();
       return;
     }
 
     if (!action) {
       setError("action がありません");
+      router.refresh();
       return;
     }
 
@@ -31,6 +33,7 @@ export const useActions = () => {
 
     if (error) {
       setError(error.message);
+      router.refresh();
       return;
     }
 
