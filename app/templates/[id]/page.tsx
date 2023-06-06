@@ -22,11 +22,7 @@ export default async function TemplatePage({
     .eq("id", params.id)
     .single();
 
-  if (error) {
-    return null;
-  }
-
-  if (!template) {
+  if (error || !template) {
     notFound();
   }
 

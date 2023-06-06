@@ -28,11 +28,7 @@ export default async function ActionPage({
     .eq("id", params.id)
     .single();
 
-  if (error) {
-    return <p>error</p>;
-  }
-
-  if (!action) {
+  if (error || !action) {
     notFound();
   }
 
