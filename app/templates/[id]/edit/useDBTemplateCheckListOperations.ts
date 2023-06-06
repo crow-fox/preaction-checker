@@ -33,7 +33,7 @@ export const useDBTemplateCheckListOperations = () => {
     id: string,
     payload: Partial<Omit<TemplateCheckListItem, "id">>
   ) => {
-    if (hasAtLeastOneProperty(payload)) {
+    if (!hasAtLeastOneProperty(payload)) {
       throw new Error("payload が空です");
     }
 
