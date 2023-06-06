@@ -28,7 +28,7 @@ export const useActions = () => {
       return;
     }
 
-    router.push(`/actions/${action.id}`);
+    router.push(`/actions/${action.id}/edit`);
   };
 
   const addActionFromTemplate = async (template: Template) => {
@@ -57,7 +57,7 @@ export const useActions = () => {
       return;
     }
 
-    router.push(`/actions/${action.id}`);
+    router.push(`/actions/${action.id}/edit`);
   };
 
   const deleteAction = async (id: string) => {

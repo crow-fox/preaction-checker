@@ -23,7 +23,7 @@ export const useTemplates = () => {
       return;
     }
 
-    router.push(`/templates/${template.id}`);
+    router.push(`/templates/${template.id}/edit`);
   };
 
   const deleteTemplate = async (id: string) => {
