@@ -23,6 +23,7 @@ export default async function ActionCreatePage() {
           テンプレートから追加
         </h2>
         <div>
+          {/* @ts-expect-error Async Server Component */}
           <AddActionFromTemplateButtonList />
         </div>
       </div>

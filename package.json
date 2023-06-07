@@ -8,16 +8,13 @@
     "start": "next start",
     "lint:es": "eslint 'app/**/*.{js,jsx,ts,tsx}'",
     "lint:es:fix": "eslint --fix 'app/**/*.{js,jsx,ts,tsx}'",
-    "lint:markup": "markuplint 'app/**/*.{html,js,ts,jsx,tsx}'",
-    "lint": "npm run --silent lint:es; npm run --silent lint:markup",
+    "lint": "npm run --silent lint:es",
     "format": "prettier --write --loglevel=warn './**/*.{js,jsx,ts,tsx,html,json}'",
     "fix": "npm run --silent lint:es:fix",
-    "preinstall": "npx typesync || :",
     "prepare": "npx simple-git-hooks || :"
   },
   "lint-staged": {
     "app/**/*.{js,ts,jsx,tsx}": [
-      "markuplint",
       "eslint --fix ",
       "prettier --write --loglevel=error"
     ],
@@ -63,6 +60,6 @@
     "prettier-plugin-tailwindcss": "^0.3.0",
     "simple-git-hooks": "^2.8.1",
     "tailwindcss": "^3.3.2",
-    "typescript": "^5.1.3"
+    "typescript": "^4.9.5"
   }
 }

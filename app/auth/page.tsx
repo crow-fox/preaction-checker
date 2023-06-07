@@ -1,5 +1,7 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import { Suspense } from "react";
+import LoadingSpiner from "@/app/_components/LoadingSpiner";
 import AccountData from "@/app/auth/AccountData";
 import DeleteAccount from "@/app/auth/DeleteAccount";
 import LoginButton from "@/app/auth/LoginButton";
@@ -31,7 +33,10 @@ export default async function AuthPage() {
     <div className="grid gap-4 ">
       <h1 className="text-2xl font-bold ">アカウント</h1>
       <div>
-        <AccountData />
+        <Suspense fallback={<LoadingSpiner />}>
+          {/* @ts-expect-error Async Server Component */}
+          <AccountData />
+        </Suspense>
       </div>
       <p className="grid ">
         <LogoutButton />

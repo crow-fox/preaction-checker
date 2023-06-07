@@ -20,6 +20,7 @@ export default async function TemplatesPage() {
       </div>
       <div>
         <Suspense fallback={<LoadingSpiner />}>
+          {/* @ts-expect-error Async Server Component */}
           <AllTemplateList />
         </Suspense>
       </div>

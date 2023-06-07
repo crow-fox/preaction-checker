@@ -20,6 +20,7 @@ export default async function ActionsPage() {
       </div>
       <div>
         <Suspense fallback={<LoadingSpiner />}>
+          {/* @ts-expect-error Async Server Component */}
           <AllActionList />
         </Suspense>
       </div>
