@@ -1,12 +1,13 @@
 "use client";
 
 import * as Dialog from "@radix-ui/react-dialog";
+import LoadingSpiner from "@/app/_components/LoadingSpiner";
 import CloseIcon from "@/app/_components/icons/CloseIcon";
 import DeleteIcon from "@/app/_components/icons/DeleteIcon";
 import { useAuth } from "@/app/auth/useAuth";
 
 export default function DeleteAccount() {
-  const { deleteUserAccount } = useAuth();
+  const { isLoading, deleteUserAccount } = useAuth();
 
   return (
     <Dialog.Root>
@@ -28,9 +29,11 @@ export default function DeleteAccount() {
             <div className=" grid grid-cols-2 gap-4 ">
               <button
                 onClick={deleteUserAccount}
+                disabled={isLoading}
                 className="flex items-center justify-center gap-2 rounded border border-current bg-red-700 p-4 font-bold text-white"
               >
                 <DeleteIcon />
+                {isLoading && <LoadingSpiner size="min" />}
                 削除
               </button>
               <Dialog.Close asChild>
