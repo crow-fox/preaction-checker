@@ -1,5 +1,6 @@
 "use client";
 import * as Dialog from "@radix-ui/react-dialog";
+import LoadingSpiner from "@/app/_components/LoadingSpiner";
 import CloseIcon from "@/app/_components/icons/CloseIcon";
 import DeleteIcon from "@/app/_components/icons/DeleteIcon";
 import { useTemplates } from "@/app/templates/useTemplates";
@@ -10,7 +11,7 @@ type Props = {
 };
 
 export default function DeleteTemplate({ id, title }: Props) {
-  const { deleteTemplate } = useTemplates();
+  const { isLoading, deleteTemplate } = useTemplates();
 
   return (
     <Dialog.Root>
@@ -37,8 +38,10 @@ export default function DeleteTemplate({ id, title }: Props) {
             <div className=" grid grid-cols-2 gap-4 ">
               <button
                 onClick={() => deleteTemplate(id)}
+                disabled={isLoading}
                 className="flex items-center justify-center gap-2 rounded border border-current bg-red-700 p-4 font-bold text-white"
               >
+                {isLoading && <LoadingSpiner size="min" />}
                 <DeleteIcon />
                 削除
               </button>

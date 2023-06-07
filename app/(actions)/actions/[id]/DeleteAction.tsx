@@ -2,6 +2,7 @@
 
 import * as Dialog from "@radix-ui/react-dialog";
 import { useActions } from "@/app/(actions)/useActions";
+import LoadingSpiner from "@/app/_components/LoadingSpiner";
 import CloseIcon from "@/app/_components/icons/CloseIcon";
 import DeleteIcon from "@/app/_components/icons/DeleteIcon";
 
@@ -11,7 +12,7 @@ type Props = {
 };
 
 export default function DeleteAction({ id, title }: Props) {
-  const { deleteAction } = useActions();
+  const { isLoading, deleteAction } = useActions();
 
   return (
     <Dialog.Root>
@@ -38,8 +39,10 @@ export default function DeleteAction({ id, title }: Props) {
             <div className=" grid grid-cols-2 gap-4 ">
               <button
                 onClick={() => deleteAction(id)}
+                disabled={isLoading}
                 className="flex items-center justify-center gap-2 rounded border border-red-700 bg-red-700 p-4 font-bold text-white"
               >
+                {isLoading && <LoadingSpiner size="min" />}
                 <DeleteIcon />
                 削除
               </button>
