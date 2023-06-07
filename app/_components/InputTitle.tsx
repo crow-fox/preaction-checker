@@ -11,7 +11,7 @@ export default function InputTitle({ labelledby, value, onChange }: Props) {
       type="text"
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="rounded border-2 border-slate-800 p-4 text-2xl font-bold leading-normal"
+      className="w-full rounded border-2 border-slate-800 p-4 text-2xl font-bold leading-normal"
       name="title"
       autoComplete="off"
     />
