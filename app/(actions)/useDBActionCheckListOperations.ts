@@ -20,16 +20,12 @@ export const useDBActionCheckListOperations = () => {
   ) => {
     if (!user) return new Error("ログインしてください");
 
-    console.log("addActionCheckListItemInDB");
-
     const { error } = await supabase.from("action_checklist").insert({
       title: checkListItem.title,
       completed: checkListItem.completed,
       action_id: actionId,
       user_id: user.id,
     });
-
-    console.log("追加 actionCheckListItem");
 
     return error;
   };
@@ -39,13 +35,11 @@ export const useDBActionCheckListOperations = () => {
     checkList: ActionCheckList
   ) => {
     if (!user) return;
-    console.log("addActionCheckListItemsInDB");
     if (checkList.length === 0) return;
 
     const errors = [];
 
     for (const checkListItem of checkList) {
-      console.log("checkListItem", checkListItem);
       const error = await addActionCheckListItemInDB(actionId, checkListItem);
 
       if (error) {
@@ -61,7 +55,6 @@ export const useDBActionCheckListOperations = () => {
     payload: Partial<Omit<ActionCheckListItem, "id">>
   ) => {
     if (!hasAtLeastOneProperty(payload)) {
-      console.log(payload);
       throw new Error("payload が空です");
     }
 
@@ -70,8 +63,6 @@ export const useDBActionCheckListOperations = () => {
       .from("action_checklist")
       .update(payload)
       .eq("id", id);
-
-    console.log("更新 checklist");
 
     return error;
   };
@@ -101,7 +92,6 @@ export const useDBActionCheckListOperations = () => {
       .delete()
       .eq("id", id);
 
-    console.log("削除 actionCheckListItem");
     return error;
   };
 

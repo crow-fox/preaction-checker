@@ -6,8 +6,6 @@ import { redirect } from "next/navigation";
 export const authGuard = async () => {
   const supabase = createServerComponentClient({ cookies });
 
-  console.log("auth guard");
-
   const {
     data: { session },
   } = await supabase.auth.getSession();

@@ -5,8 +5,6 @@ import type { NextRequest } from "next/server";
 import { Database } from "@/app/_types/supabase";
 
 export async function GET(request: NextRequest) {
-  console.log("Callback api route");
-
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get("code");
 

@@ -23,8 +23,6 @@ export const useDBTemplateCheckListOperations = () => {
       user_id: user.id,
     });
 
-    console.log("追加 templateCheckListItem");
-
     return error;
   };
 
@@ -63,8 +61,6 @@ export const useDBTemplateCheckListOperations = () => {
       .update(payload)
       .eq("id", id);
 
-    console.log("更新 checklist");
-
     return error;
   };
 
@@ -91,7 +87,6 @@ export const useDBTemplateCheckListOperations = () => {
       .delete()
       .eq("id", id);
 
-    console.log("削除 templateCheckListItem");
     return error;
   };
 

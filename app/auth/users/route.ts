@@ -4,8 +4,6 @@ import { NextResponse } from "next/server";
 import { Database } from "@/app/_types/supabase";
 
 export async function DELETE() {
-  console.log("DeleteUser api route");
-
   const supabase = createRouteHandlerClient<Database>(
     {
       cookies,
@@ -19,8 +17,6 @@ export async function DELETE() {
     data: { user },
     error: authError,
   } = await supabase.auth.getUser();
-
-  console.log({ user });
 
   if (authError?.status === 401 || !user?.id) {
     return NextResponse.json(

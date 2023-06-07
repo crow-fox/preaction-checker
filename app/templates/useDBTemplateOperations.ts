@@ -19,7 +19,6 @@ export const useDBTemplateOperations = () => {
       .select("id")
       .single();
 
-    console.log("追加 template");
     return { template, error };
   };
 
@@ -36,14 +35,12 @@ export const useDBTemplateOperations = () => {
       .update(payload)
       .eq("id", id);
 
-    console.log("更新 template");
     return { error };
   };
 
   const deleteTemplateInDB = async (id: string) => {
     const { error } = await supabase.from("templates").delete().eq("id", id);
 
-    console.log("削除 template");
     return { error };
   };
 

@@ -10,7 +10,6 @@ export const useAuth = () => {
   const logout = async () => {
     await supabase.auth.signOut();
     router.refresh();
-    console.log("ログアウトしました");
   };
 
   const deleteUserAccount = async () => {
@@ -19,7 +18,6 @@ export const useAuth = () => {
     });
     await supabase.auth.signOut();
     router.refresh();
-    console.log("ユーザー削除しました");
   };
 
   return {

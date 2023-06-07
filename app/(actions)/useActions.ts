@@ -32,7 +32,6 @@ export const useActions = () => {
   };
 
   const addActionFromTemplate = async (template: Template) => {
-    console.log("addActionFromTemplate start");
     const { action, error } = await addActionInDB({
       title: template.title,
       color: template.color,

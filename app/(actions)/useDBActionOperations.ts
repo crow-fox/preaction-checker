@@ -13,7 +13,6 @@ export const useDBActionOperations = () => {
     color?: Action["color"];
   }) => {
     if (!user) return { action: null, error: null };
-    console.log("addActionInDB start");
 
     if (payload === undefined) {
       const { data: action, error } = await supabase
@@ -24,14 +23,10 @@ export const useDBActionOperations = () => {
         .select("id")
         .single();
 
-      console.log("追加 action");
       return { action, error };
     }
 
     if (payload.title !== undefined && payload.color !== undefined) {
-      console.log(
-        "addActionInDB payload.title !== undefined && payload.color !== undefined"
-      );
       const { data: action, error } = await supabase
         .from("actions")
         .insert({
@@ -42,7 +37,6 @@ export const useDBActionOperations = () => {
         .select("id")
         .single();
 
-      console.log("追加action");
       return { action, error };
     }
 
@@ -56,7 +50,6 @@ export const useDBActionOperations = () => {
         .select("id")
         .single();
 
-      console.log("追加action");
       return { action, error };
     }
 
@@ -70,7 +63,6 @@ export const useDBActionOperations = () => {
         .select("id")
         .single();
 
-      console.log("追加action");
       return { action, error };
     }
 
@@ -90,14 +82,12 @@ export const useDBActionOperations = () => {
       .update(payload)
       .eq("id", id);
 
-    console.log("更新 action");
     return { error };
   };
 
   const deleteActionInDB = async (id: string) => {
     const { error } = await supabase.from("actions").delete().eq("id", id);
 
-    console.log("削除 action");
     return { error };
   };
 
