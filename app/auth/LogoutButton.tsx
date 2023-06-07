@@ -9,7 +9,7 @@ export default function LogoutButton() {
     <button
       onClick={logout}
       disabled={isLoading}
-      className="flex items-center gap-2 rounded border border-slate-800 bg-white px-4 py-2 font-bold"
+      className="flex items-center justify-center gap-2 rounded border border-slate-800 bg-white px-4 py-2 font-bold"
     >
       {isLoading && <LoadingSpiner size="min" />}
       ログアウト
