@@ -6,7 +6,7 @@ export default function AddActionLink() {
   return (
     <Link
       href="/actions/create"
-      className="flex w-full items-center justify-between gap-4 rounded border-2 border-dotted border-slate-500 p-4 hover:border-solid hover:border-blue-500 hover:bg-white focus:bg-white "
+      className="flex w-full items-center justify-between gap-4 rounded border-2 border-dotted border-slate-500 p-4 hover:border-solid hover:border-blue-700 hover:bg-white focus:border-solid focus:border-blue-700 focus:bg-white "
     >
       <span className="flex items-center gap-2 text-2xl  leading-normal">
         <ActionIcon />

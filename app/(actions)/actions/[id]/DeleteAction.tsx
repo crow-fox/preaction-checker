@@ -38,13 +38,13 @@ export default function DeleteAction({ id, title }: Props) {
             <div className=" grid grid-cols-2 gap-4 ">
               <button
                 onClick={() => deleteAction(id)}
-                className="flex items-center justify-center gap-2 rounded border border-current bg-red-700 p-4 font-bold text-white"
+                className="flex items-center justify-center gap-2 rounded border border-red-700 bg-red-700 p-4 font-bold text-white"
               >
                 <DeleteIcon />
                 削除
               </button>
               <Dialog.Close asChild>
-                <button className="flex items-center justify-center gap-2 rounded border border-slate-500 p-4 font-bold ">
+                <button className="flex items-center justify-center gap-2 rounded border border-slate-800 p-4 font-bold ">
                   <CloseIcon />
                   キャンセル
                 </button>

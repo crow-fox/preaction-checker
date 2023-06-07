@@ -17,7 +17,7 @@ export default function NotFound() {
       <p>
         <Link
           href="/"
-          className=" flex items-center justify-between gap-4 rounded border-2 border-[var(--color)] bg-[var(--color)] p-4 hover:border-blue-500"
+          className=" flex items-center justify-between gap-4 rounded border-2 border-[var(--color)] bg-[var(--color)] p-4 hover:border-blue-700"
         >
           <span className="flex items-center gap-2 text-2xl font-bold leading-normal ">
             <ActionIcon />

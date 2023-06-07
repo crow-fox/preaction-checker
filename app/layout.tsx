@@ -36,12 +36,12 @@ export default async function RootLayout({
   const hasValidSession = await getHasValidSession();
 
   return (
-    <html lang="ja" className="h-full">
+    <html lang="ja" className="h-full overflow-y-scroll">
       <body
-        className={`${inter.className} grid h-full grid-rows-[auto_1fr_auto] break-words leading-normal text-black `}
+        className={`${inter.className} grid h-full grid-rows-[auto_1fr_auto] break-words bg-white leading-normal text-slate-800 `}
       >
         <UserProvider>
-          <div className=" border-b border-b-black-light py-4 ">
+          <div className=" border-b border-b-slate-300 py-4 ">
             <div className=" mx-auto box-content grid max-w-container gap-4 px-4">
               <header className="flex flex-wrap items-center justify-between gap-2">
                 <p className="text-lg font-bold ">
@@ -63,7 +63,7 @@ export default async function RootLayout({
               {children}
             </main>
           </div>
-          <div className="border-t border-t-black-light py-4">
+          <div className="border-t border-t-slate-300 py-4">
             <footer className="mx-auto box-content max-w-container px-4 ">
               <p className="flex justify-center">
                 <small>©️ 2023 crow-fox</small>

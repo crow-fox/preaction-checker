@@ -15,7 +15,7 @@ export default function LoginButton() {
         extend: false,
         className: {
           button:
-            "flex items-center justify-center w-full rounded border border-gray-600 bg-white px-4 py-2 font-bold",
+            "flex items-center justify-center w-full rounded border border-slate-800 bg-white px-4 py-2 font-bold",
         },
       }}
       localization={{

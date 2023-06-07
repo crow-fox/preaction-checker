@@ -12,12 +12,12 @@ export default function ActionCheckListProgress({ actionCheckList }: Props) {
   return (
     <div className="flex items-center gap-2">
       <div
-        className="grid h-12 w-12 place-content-center rounded-full border border-slate-700"
+        className="grid h-12 w-12 place-content-center rounded-full border border-slate-800 text-slate-800"
         style={{
-          backgroundImage: `conic-gradient( black ${progress}%, white ${progress}%)`,
+          backgroundImage: `conic-gradient( currentColor ${progress}%, white ${progress}%)`,
         }}
       >
-        <span className="grid h-9 w-9 place-content-center rounded-full border border-slate-700 bg-white">
+        <span className="grid h-9 w-9 place-content-center rounded-full border border-slate-800 bg-white">
           <svg
             height="1em"
             viewBox="0 96 960 960"

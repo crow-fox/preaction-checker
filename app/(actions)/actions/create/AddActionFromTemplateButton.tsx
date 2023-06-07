@@ -24,7 +24,7 @@ export default function AddActionFromTemplateButton({
           "--color": `var(--c-${color})`,
         } as CSSProperties
       }
-      className=" grid w-full grid-cols-[1fr,auto] items-center gap-4 rounded border-2 border-[var(--color)] bg-[var(--color)] p-4 hover:border-blue-700"
+      className=" grid w-full grid-cols-[1fr,auto] items-center gap-4 rounded border-2 border-[var(--color)] bg-[var(--color)] p-4 hover:border-blue-700 focus:border-blue-700"
     >
       <h2 className="flex items-center gap-2 text-2xl font-bold leading-normal ">
         <TemplateIcon />

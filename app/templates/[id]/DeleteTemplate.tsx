@@ -43,7 +43,7 @@ export default function DeleteTemplate({ id, title }: Props) {
                 削除
               </button>
               <Dialog.Close asChild>
-                <button className="flex items-center justify-center gap-2 rounded border border-slate-500 p-4 font-bold ">
+                <button className="flex items-center justify-center gap-2 rounded border border-slate-800 p-4 font-bold ">
                   <CloseIcon />
                   キャンセル
                 </button>

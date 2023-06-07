@@ -23,7 +23,7 @@ export default function ActionListItem({
       <Link
         href={`/actions/${id}`}
         className={
-          "grid grid-cols-[1fr,auto] items-center justify-between gap-4 rounded border-2 border-[var(--color)] bg-[var(--color)] p-4 hover:border-blue-500 focus:border-blue-500"
+          "grid grid-cols-[1fr,auto] items-center justify-between gap-4 rounded border-2 border-[var(--color)] bg-[var(--color)] p-4 hover:border-blue-700 focus:border-blue-700"
         }
         style={
           {
@@ -52,12 +52,12 @@ export default function ActionListItem({
           </p>
           <div className="mt-4 flex items-center gap-2">
             <div
-              className="grid h-12 w-12 place-content-center rounded-full border border-slate-700"
+              className="grid h-12 w-12 place-content-center rounded-full border border-slate-800 text-slate-800"
               style={{
-                backgroundImage: `conic-gradient( black ${progress}%, white ${progress}%)`,
+                backgroundImage: `conic-gradient( currentColor ${progress}%, white ${progress}%)`,
               }}
             >
-              <span className="grid h-9 w-9 place-content-center rounded-full border border-slate-700 bg-white">
+              <span className="grid h-9 w-9 place-content-center rounded-full border border-slate-800 bg-white">
                 <svg
                   height="1em"
                   viewBox="0 96 960 960"

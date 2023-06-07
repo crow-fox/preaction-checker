@@ -20,24 +20,24 @@ export default function GlobalNav() {
           <Link
             href="/"
             className={` flex items-center gap-1 rounded-t border-b-4 py-2 font-bold ${
-              isActionPage ? "border-black" : "border-transparent"
+              isActionPage ? "border-slate-800" : "border-transparent"
             } `}
             aria-current={isRootActionPage ? "page" : undefined}
           >
             <ActionIcon />
-            <span className=" hidden sm:inline-block">アクション</span>
+            <span>アクション</span>
           </Link>
         </li>
         <li>
           <Link
             href="/templates"
             className={`flex items-center gap-1 rounded-t border-b-4 py-2 font-bold ${
-              isTemplatePage ? "border-black" : "border-transparent"
+              isTemplatePage ? "border-slate-800" : "border-transparent"
             }`}
             aria-current={isRootTemplatePage ? "page" : undefined}
           >
             <TemplateIcon />
-            <span className="hidden sm:inline-block">テンプレート</span>
+            <span>テンプレート</span>
           </Link>
         </li>
       </ul>

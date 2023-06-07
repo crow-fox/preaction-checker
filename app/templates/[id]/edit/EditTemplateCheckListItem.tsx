@@ -22,14 +22,14 @@ export default function EditTemplateCheckListItem({
         <span className="sr-only">{label}</span>
         <input
           type="text"
-          className="block w-full rounded border-2 border-slate-700  p-2 "
+          className="block w-full rounded border-2 border-slate-800  p-2 "
           value={title}
           onChange={(e) => onChange(e.target.value)}
         />
       </label>
       <button
         onClick={onDelete}
-        className="grid h-full w-8 place-content-center rounded border-2 border-slate-700 hover:bg-slate-700 hover:text-white focus:bg-slate-700 focus:text-white "
+        className="grid h-full w-8 place-content-center rounded border-2 border-slate-800 hover:bg-slate-800 hover:text-white focus:bg-slate-800 focus:text-white "
       >
         <span className="sr-only">削除</span>
         <DeleteIcon />

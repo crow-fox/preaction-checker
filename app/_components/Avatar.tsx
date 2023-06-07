@@ -16,10 +16,10 @@ export default function Avatar({ imgUrl, size = 48, alt = "" }: Props) {
           height={size}
           alt={alt}
           decoding="async"
-          className="block rounded-full  border border-slate-400 "
+          className="block rounded-full  border border-slate-300 "
         />
       ) : (
-        <span className="block rounded-full border border-slate-400">
+        <span className="block rounded-full border border-slate-300">
           <span className="sr-only">デフォルトのアバター画像</span>
           <svg
             height={size}

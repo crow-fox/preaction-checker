@@ -7,7 +7,7 @@ export default function LogoutButton() {
   return (
     <button
       onClick={logout}
-      className="block rounded border border-gray-600 bg-white px-4 py-2 font-bold"
+      className="block rounded border border-slate-800 bg-white px-4 py-2 font-bold"
     >
       ログアウト
     </button>

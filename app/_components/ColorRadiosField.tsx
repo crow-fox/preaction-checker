@@ -24,7 +24,7 @@ export default function ColorRadiosField({ value, onChange }: Props) {
           />
           <label
             htmlFor={`color-${colorName}-${uid}`}
-            className="flex h-12 w-12 rounded-full border-2 border-slate-300 bg-white p-1 peer-checked:border-slate-700"
+            className="flex h-12 w-12 rounded-full border-2 border-slate-300 bg-white p-1 peer-checked:border-slate-800"
           >
             <span className="sr-only">{colorJaName}</span>
             <span
