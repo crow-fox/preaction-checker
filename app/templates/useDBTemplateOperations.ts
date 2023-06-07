@@ -27,7 +27,7 @@ export const useDBTemplateOperations = () => {
     payload: Partial<Omit<Template, "id" | "checkList">>
   ) => {
     if (!hasAtLeastOneProperty(payload)) {
-      throw new Error("payload が空です");
+      throw new Error("payloadが空です");
     }
 
     const { error } = await supabase
