@@ -34,7 +34,7 @@ export default function ActionListItem({
         <div>
           <h2 className="text-xl font-bold leading-normal ">
             {title === "" ? (
-              <span className="grid grid-cols-[auto,1fr] gap-2 ">
+              <span className=" flex flex-wrap gap-2 ">
                 <span className="grid text-red-700">
                   <AlertIcon />
                 </span>
@@ -50,7 +50,7 @@ export default function ActionListItem({
           <p className="mt-2 text-sm">
             <time dateTime={date.dateTime}>{date.display}</time>
           </p>
-          <div className="mt-4 flex items-center gap-2">
+          <div className="mt-4 flex flex-wrap items-center gap-2">
             <div
               className="grid h-12 w-12 place-content-center rounded-full border border-slate-800 text-slate-800"
               style={{

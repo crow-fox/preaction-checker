@@ -4,9 +4,9 @@ type Props = {
 
 export default function DetailTitle({ title }: Props) {
   return (
-    <h2 className="flex gap-2 text-2xl font-bold leading-normal ">
+    <h2 className="flex  gap-2 text-2xl font-bold leading-normal ">
       {title === "" ? (
-        <span className="flex gap-2">
+        <span className="flex flex-wrap gap-2">
           <svg
             height="1.5em"
             viewBox="0 96 960 960"
