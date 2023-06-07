@@ -1,4 +1,4 @@
 export const appConfig = {
   title: "プレアクションチェッカー",
-  url: "https://preaction-checker.vercel.app",
+  url: process.env.NEXT_PUBLIC_VERCEL_URL ?? "http://localhost:3000",
 };
