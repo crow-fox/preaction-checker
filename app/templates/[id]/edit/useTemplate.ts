@@ -5,14 +5,14 @@ import {
   TemplateCheckList,
   TemplateCheckListItem,
 } from "@/app/_types/template";
-import {
-  getAddedCheckList,
-  getDeletedCheckList,
-  getUpdatedCheckList,
-} from "@/app/_utils/difCheckList";
 import { hasAtLeastOneProperty } from "@/app/_utils/hasAtLeastOneProperty";
 import { isEqualObject } from "@/app/_utils/isEqualObject";
 import { useDBTemplateCheckListOperations } from "@/app/templates/[id]/edit/useDBTemplateCheckListOperations";
+import {
+  getAddedTemplateCheckList,
+  getDeletedTemplateCheckList,
+  getUpdatedTemplateCheckList,
+} from "@/app/templates/difTemplateCheckList";
 import { useDBTemplateOperations } from "@/app/templates/useDBTemplateOperations";
 
 type CheckListReducerAction =
@@ -187,15 +187,15 @@ export const useTemplate = (
 
     // checkListの差分をDBに反映
     if (!isEqualObject(newCheckList, initCheckList)) {
-      const addedTemplateCheckList = getAddedCheckList(
+      const addedTemplateCheckList = getAddedTemplateCheckList(
         initCheckList,
         newCheckList
       );
-      const updatedTemplateCheckList = getUpdatedCheckList(
+      const updatedTemplateCheckList = getUpdatedTemplateCheckList(
         initCheckList,
         newCheckList
       );
-      const deletedTemplateCheckList = getDeletedCheckList(
+      const deletedTemplateCheckList = getDeletedTemplateCheckList(
         initCheckList,
         newCheckList
       );

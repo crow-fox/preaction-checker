@@ -1,9 +1,6 @@
-import { ActionCheckList } from "@/app/_types/action";
 import { TemplateCheckList } from "@/app/_types/template";
 
-type CheckList = TemplateCheckList | ActionCheckList;
-
-export const getDeletedCheckList = <T extends CheckList>(
+export const getDeletedTemplateCheckList = <T extends TemplateCheckList>(
   originalCheckList: T,
   newCheckList: T
 ) => {
@@ -16,7 +13,7 @@ export const getDeletedCheckList = <T extends CheckList>(
   return deletedCheckList;
 };
 
-export const getAddedCheckList = <T extends CheckList>(
+export const getAddedTemplateCheckList = <T extends TemplateCheckList>(
   originalCheckList: T,
   newCheckList: T
 ) => {
@@ -29,7 +26,7 @@ export const getAddedCheckList = <T extends CheckList>(
   return addedCheckList;
 };
 
-export const getUpdatedCheckList = <T extends CheckList>(
+export const getUpdatedTemplateCheckList = <T extends TemplateCheckList>(
   originalCheckList: T,
   newCheckList: T
 ) => {
@@ -38,14 +35,6 @@ export const getUpdatedCheckList = <T extends CheckList>(
     const newItem = newCheckList.find((item) => item.id === id);
     if (!originalItem || !newItem) return false;
     if (originalItem.title !== newItem.title) return true;
-    if (
-      "completed" in originalItem &&
-      "completed" in newItem &&
-      originalItem.completed !== undefined &&
-      newItem.completed !== undefined
-    ) {
-      if (originalItem.completed !== newItem.completed) return true;
-    }
 
     return false;
   });
