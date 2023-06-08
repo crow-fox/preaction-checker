@@ -1,34 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## プレアクションチェッカー
 
-## Getting Started
+アプリのURL
+https://preaction-checker.vercel.app/
 
-First, run the development server:
+プレアクションチェッカーは、何らかの**アクション行う前にするべきチェックリスト**を管理するアプリです。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+（例）
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+アクション：外出する 
+  * ☑️部屋の電気を消す
+  * ☑️エアコンを切る
+  * ☑️家の鍵を閉める
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 作った目的
+外出したときに、「そういえばストーブを消したかな」と不安になることが多く、Todoアプリのように管理できれば安心感が上がると思いからスタートしました。
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+"外出する"など一般的なアクションは日々繰り返すため、テンプレートからアクションを生成する機能が必要だと考え機能に盛り込みました。
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+### 使用技術
+* TypeScript
+* Next.js (App Router)
+* Supabase（認証・データベース）
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 今後追加したい機能
+* []アクションの編集画面でもチェックリストの完了・未完了をトグルできるように
+* []チェックリスト並び替え
+* []テンプレートとアクションの編集が保存されていない状態で、別のページに移動する時にアラートを表示する
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 今後の方針
+* SupabaseからFirebaseに移行する
